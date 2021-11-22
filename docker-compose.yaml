@@ -198,34 +198,34 @@ services:
       com.zabbix.component: "zabbix-agentd"
       com.zabbix.os: "ubuntu"
 
- zabbix-java-gateway:
-  image: zabbix/zabbix-java-gateway:ubuntu-5.4-latest
-  profiles:
-   - full
-   - all
-  ports:
-   - "10052:10052"
-  deploy:
-   resources:
-    limits:
-      cpus: '0.5'
-      memory: 512M
-    reservations:
-      cpus: '0.25'
-      memory: 256M
-  env_file:
-   - ./env_vars/.env_java
-  networks:
-   zbx_net_backend:
-    aliases:
-     - zabbix-java-gateway
-     - zabbix-java-gateway-ubuntu
-  stop_grace_period: 5s
-  labels:
-   com.zabbix.description: "Zabbix Java Gateway"
-   com.zabbix.company: "Zabbix LLC"
-   com.zabbix.component: "java-gateway"
-   com.zabbix.os: "ubuntu"
+  zabbix-java-gateway:
+    image: zabbix/zabbix-java-gateway:ubuntu-5.4-latest
+    profiles:
+      - full
+      - all
+    ports:
+      - "10052:10052"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    env_file:
+      - ./env_vars/.env_java
+    networks:
+      zbx_net_backend:
+        aliases:
+          - zabbix-java-gateway
+          - zabbix-java-gateway-ubuntu
+    stop_grace_period: 5s
+    labels:
+      com.zabbix.description: "Zabbix Java Gateway"
+      com.zabbix.company: "Zabbix LLC"
+      com.zabbix.component: "java-gateway"
+      com.zabbix.os: "ubuntu"
 
  zabbix-snmptraps:
   image: zabbix/zabbix-snmptraps:ubuntu-5.4-latest
