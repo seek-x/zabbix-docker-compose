@@ -227,34 +227,34 @@ services:
       com.zabbix.component: "java-gateway"
       com.zabbix.os: "ubuntu"
 
- zabbix-snmptraps:
-  image: zabbix/zabbix-snmptraps:ubuntu-5.4-latest
-  profiles:
-   - full
-   - all
-  ports:
-   - "162:1162/udp"
-  volumes:
-   - snmptraps:/var/lib/zabbix/snmptraps:rw
-  deploy:
-   resources:
-    limits:
-      cpus: '0.5'
-      memory: 256M
-    reservations:
-      cpus: '0.25'
-      memory: 128M
-  networks:
-   zbx_net_frontend:
-    aliases:
-     - zabbix-snmptraps
-   zbx_net_backend:
-  stop_grace_period: 5s
-  labels:
-   com.zabbix.description: "Zabbix snmptraps"
-   com.zabbix.company: "Zabbix LLC"
-   com.zabbix.component: "snmptraps"
-   com.zabbix.os: "ubuntu"
+  zabbix-snmptraps:
+    image: zabbix/zabbix-snmptraps:ubuntu-5.4-latest
+    profiles:
+      - full
+      - all
+    ports:
+      - "162:1162/udp"
+    volumes:
+      - snmptraps:/var/lib/zabbix/snmptraps:rw
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+    networks:
+      zbx_net_frontend:
+        aliases:
+          - zabbix-snmptraps
+      zbx_net_backend:
+    stop_grace_period: 5s
+    labels:
+      com.zabbix.description: "Zabbix snmptraps"
+      com.zabbix.company: "Zabbix LLC"
+      com.zabbix.component: "snmptraps"
+      com.zabbix.os: "ubuntu"
 
  zabbix-web-service:
   image: zabbix/zabbix-web-service:ubuntu-5.4-latest
